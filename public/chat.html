@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Join | ChatRoom</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body class="chat">
+  <div class="container-fluid">
+    <div class="col-sm-2 chat__people">
+      <h4 class="darkblue-text-title">People</h4>
+      <div id="users"></div>
+    </div>
+    <div class="col-sm-10 chat__main">
+      <ol id="messages" class="chat__messages"></ol>
+      <div class="chat__footer">
+        <form class="form-inline" id="message-form">
+          <div class="form-group">
+            <div class="input-group">
+              <input type="text" name="message" placeholder="Message" autofocus autocomplete="off" />
+              <div class="input-group-addon">
+                <button class="btn btn-dark" id="send-message">Send</button>
+                <button class="btn btn-dark" id="send-location">Send location</button>
+              </div>
+            </div>
+            <div class="extra-btns">
+              <button class="btn btn-chat" id="save-chat">Save chat log</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script id="message-template" type="text/template">
+    <li class="message">
+      <span><b>{{from}} ({{createdAt}}): </b></span><span>{{text}}</span>
+    </li>
+  </script>
+
+  <script id="location-template" type="text/template">
+    <li class="message">
+      <span><b>{{from}} ({{createdAt}}): </b></span><a href="{{url}}" target="_blank">My current location</a>
+    </li>
+  </script>
+
+  <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="./js/lib/moment.js"></script>
+  <script src="./js/lib/mustache.js"></script>
+  <script src="./js/helper.js"></script>
+  <script src="./js/chat.js"></script>
+</body>
+
+</html>
